@@ -1,0 +1,292 @@
+.header-hud-container {
+  position: absolute;
+  top: 14px;
+  left: 80px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 50;
+  pointer-events: none; /* Allow clicks through to 3D canvas/map */
+}
+
+.hud-left-group,
+.hud-center-group,
+.hud-right-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: auto; /* Re-enable for controls */
+}
+
+.hud-center-group {
+  align-items: center;
+}
+
+.hud-right-group {
+  align-items: flex-end;
+}
+
+/* Common Pill Base */
+.hud-pill {
+  height: 38px;
+  background-color: var(--pill-bg);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--pill-border);
+  padding: 0 6px 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pill-text);
+  transition: var(--transition-smooth);
+}
+
+.hud-pill:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Status Pill */
+.status-pill {
+  gap: 12px;
+}
+
+.status-label {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.status-text {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.status-text.estop-active {
+  color: var(--accent-red);
+  animation: pulseRed 1s infinite;
+}
+
+/* Action Pills (Quick Goal & Initiate) */
+.action-pill {
+  gap: 12px;
+  cursor: pointer;
+  padding-right: 6px;
+}
+
+.action-pill:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.pill-circle-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--pill-circle-bg);
+  color: var(--pill-circle-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.action-pill:hover .pill-circle-btn,
+.status-pill .pill-circle-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Floating Center Telemetry Bar */
+.telemetry-bar {
+  background-color: var(--bg-hud);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bg-hud-border);
+  height: 38px;
+  border-radius: var(--radius-pill);
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #f1f5f9;
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.telemetry-label {
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.telemetry-value {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.battery-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.battery-icon {
+  color: #10b981;
+}
+
+.signal-icon {
+  color: #f59e0b;
+}
+
+.telemetry-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-green {
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulseGreen 2.5s infinite;
+}
+
+.dot-yellow {
+  background-color: #f59e0b;
+  box-shadow: 0 0 6px #f59e0b;
+}
+
+.dot-red {
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: pulseRed 1s infinite;
+}
+
+/* View Mode Switcher Pill below center HUD */
+.view-mode-pill {
+  height: 28px;
+  background-color: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f8fafc;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.view-mode-pill:hover {
+  background-color: #1e293b;
+  transform: translateY(1px);
+}
+
+.view-mode-icon {
+  color: #38bdf8;
+}
+
+/* Mode Selector (AUTO / MANUAL) */
+.mode-selector-pill {
+  padding: 3px 4px 3px 14px;
+  gap: 10px;
+}
+
+.mode-title {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.mode-toggle-group {
+  display: flex;
+  background-color: #f1f5f9;
+  border-radius: var(--radius-pill);
+  padding: 2px;
+}
+
+.mode-btn {
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  transition: var(--transition-smooth);
+}
+
+.mode-btn.mode-active {
+  background-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+  .header-hud-container {
+    left: 60px;
+    right: 10px;
+    top: 10px;
+  }
+  .telemetry-bar {
+    gap: 10px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  .hud-pill {
+    height: 34px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-hud-container {
+    left: 56px;
+    right: 8px;
+    top: 8px;
+    gap: 6px;
+  }
+  .status-pill {
+    padding: 0 4px 0 10px;
+    gap: 6px;
+    height: 30px;
+    font-size: 10px;
+  }
+  .action-pill {
+    padding: 0 4px 0 10px;
+    height: 30px;
+    gap: 6px;
+  }
+  .action-text {
+    font-size: 9.5px;
+  }
+  .telemetry-bar {
+    display: none; /* Hide wide telemetry bar on small phones, available in Telemetry Drawer */
+  }
+  .mode-selector-pill {
+    padding: 2px 2px 2px 8px;
+    height: 30px;
+  }
+  .mode-btn {
+    padding: 3px 8px;
+    font-size: 9.5px;
+  }
+}

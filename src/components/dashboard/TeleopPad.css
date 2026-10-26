@@ -1,0 +1,144 @@
+.teleop-pad-container {
+  user-select: none;
+  touch-action: none;
+}
+
+.teleop-outer-circle {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #1e293b 0%, #0f172a 70%, #090d16 100%);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.15),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pad-disabled {
+  opacity: 0.55;
+  filter: grayscale(0.5);
+  cursor: not-allowed;
+}
+
+.dpad-btn {
+  position: absolute;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+  z-index: 2;
+}
+
+.dpad-up {
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 28px;
+}
+
+.dpad-down {
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 28px;
+}
+
+.dpad-left {
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 44px;
+}
+
+.dpad-right {
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 44px;
+}
+
+.dpad-btn:hover:not(:disabled) {
+  color: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+}
+
+.dpad-btn.btn-active {
+  color: #38bdf8;
+  transform-origin: center;
+  filter: drop-shadow(0 0 10px #38bdf8);
+}
+
+.dpad-up.btn-active {
+  transform: translateX(-50%) translateY(-2px);
+}
+.dpad-down.btn-active {
+  transform: translateX(-50%) translateY(2px);
+}
+.dpad-left.btn-active {
+  transform: translateY(-50%) translateX(-2px);
+}
+.dpad-right.btn-active {
+  transform: translateY(-50%) translateX(2px);
+}
+
+/* Center Key Mapping Badge */
+.dpad-center-hub {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f1f5f9 60%, #e2e8f0 100%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: #0f172a;
+}
+
+.key-north,
+.key-south,
+.key-west,
+.key-east {
+  font-size: 8.5px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.key-middle-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 1px 0;
+}
+
+.key-label {
+  font-size: 6.5px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .teleop-outer-circle {
+    width: 86px;
+    height: 86px;
+  }
+  .dpad-center-hub {
+    width: 42px;
+    height: 42px;
+  }
+}
+

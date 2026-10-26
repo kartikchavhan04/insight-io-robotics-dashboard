@@ -1,0 +1,15 @@
+.app-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-dashboard);
+}
+
+.dashboard-wrapper {
+  flex: 1;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+

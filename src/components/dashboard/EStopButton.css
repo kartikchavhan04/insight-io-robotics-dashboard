@@ -1,0 +1,117 @@
+.estop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.estop-outer-ring {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fde047 0%, #eab308 60%, #ca8a04 100%);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.28),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.estop-outer-ring:hover {
+  transform: scale(1.03);
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.estop-outer-ring:active {
+  transform: scale(0.97);
+}
+
+.estop-bezel-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bezel-text {
+  font-family: var(--font-family);
+  font-size: 7.2px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  fill: #854d0e;
+}
+
+.estop-inner-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ef4444 0%, #dc2626 50%, #991b1b 100%);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.estop-engaged {
+  animation: pulseRed 0.8s infinite;
+}
+
+.estop-engaged .estop-inner-button {
+  background: radial-gradient(circle at 35% 35%, #b91c1c 0%, #7f1d1d 70%, #450a0a 100%);
+  transform: scale(0.92);
+  box-shadow: 
+    inset 0 4px 8px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(239, 68, 68, 0.8);
+}
+
+.estop-icon {
+  stroke-width: 2.4;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+.alert-spin {
+  animation: pulseRed 0.8s infinite;
+}
+
+.estop-warning-tag {
+  background-color: var(--accent-red);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+}
+
+@media (max-width: 768px) {
+  .estop-outer-ring {
+    width: 76px;
+    height: 76px;
+  }
+  .estop-inner-button {
+    width: 50px;
+    height: 50px;
+  }
+  .estop-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
